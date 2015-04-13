@@ -49,9 +49,11 @@ public class Marathon {
 			System.out.println(names[i] + ": " + times[i]);
 		}
 
+		// Get the fastest time
 		int index = getFastestTimeIndex(times);
 		System.out.println("Fastest runner: " + names[index] + ". Time: " + times[index]);
 		
+		// Get the second fastest time
 		int index2 = getSecondFastestTimeIndex(times);
 		System.out.println("2nd fastest runner: " + names[index2] + ". Time: " + times[index2]);
 	}
