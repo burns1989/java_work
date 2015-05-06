@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 public class wordSorter {
-	
+
 	private static ArrayList<String> words = new ArrayList<String>();
-	
+
 	/**
 	 * Prints all the values stored in the words arraylist.
 	 */
@@ -14,15 +14,16 @@ public class wordSorter {
 			System.out.println(word);
 		}
 	}
-	
+
 	/**
 	 * Splits up an input string into an arraylist of words.
+	 * 
 	 * @param text
 	 */
 	private static void splitText(String text) {
 		String letter;
 		String word = "";
-		
+
 		// Go through each char in the input text
 		for (int i = 0; i < text.length(); i++) {
 			letter = Character.toString(text.charAt(i)).toLowerCase();
@@ -43,15 +44,29 @@ public class wordSorter {
 					continue;
 				}
 			}
-		}		
+		}
 	}
-	
-	
+
 	private static void sortWordsAlphabetically() {
 		String str1, str2;
-		
-		for (int i = 0; i < words.size(); i++) {
-			
+		boolean sorted = false;
+
+		// Keep so
+		while (!sorted) {
+			sorted = true;
+			for (int i = 0; i < words.size() - 1; i++) {
+				str1 = words.get(i);
+				str2 = words.get(i + 1);
+				
+				// If the second string is alphabetically before the first swap them.
+				if (str2.compareTo(str1) < 0) {
+					words.set(i, str2);
+					words.set(i + 1, str1);
+					// Set sorted to false
+					sorted = false;
+				}
+
+			}
 		}
 	}
 
@@ -65,6 +80,10 @@ public class wordSorter {
 		printWords();
 		// Sort the words alphabetically
 		sortWordsAlphabetically();
+		
+		// Print the words again
+		System.out.println("\n\nSorted words:\n");
+		printWords();
 
 	}
 
