@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 public class wordSorter {
 
 	private static ArrayList<String> words = new ArrayList<String>();
@@ -51,7 +49,7 @@ public class wordSorter {
 		String str1, str2;
 		boolean sorted = false;
 
-		// Keep so
+		// Keep sorting until the words are all in order
 		while (!sorted) {
 			sorted = true;
 			for (int i = 0; i < words.size() - 1; i++) {
@@ -80,8 +78,7 @@ public class wordSorter {
 		printWords();
 		// Sort the words alphabetically
 		sortWordsAlphabetically();
-		
-		// Print the words again
+		// Print the words after sorting them
 		System.out.println("\n\nSorted words:\n");
 		printWords();
 
